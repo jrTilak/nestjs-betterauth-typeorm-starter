@@ -15,6 +15,16 @@ export const ENV_SCHEMA = [
   { name: "ENABLE_SWAGGER", default: "true" },
   { name: "SWAGGER_PATH", default: "/api/docs/" },
   { name: "LOG_LEVEL", default: "info" },
+  { name: "CORS_ORIGINS", required: false },
+
+  { name: "DB_HOST" },
+  { name: "DB_PORT" },
+  { name: "DB_USERNAME" },
+  { name: "DB_PASSWORD" },
+  { name: "DB_NAME" },
+
+  { name: "BETTER_AUTH_SECRET" },
+  { name: "BETTER_AUTH_URL" },
 ] as const;
 
 export type ParsedEnvType = (typeof ENV_SCHEMA)[number]["name"];

@@ -1,6 +1,7 @@
 import { Controller, Get } from "@nestjs/common";
 import { ApiOperation } from "@nestjs/swagger";
 import { AppService } from "./app.service";
+import { ApiResponse } from "./common/dto/response/api-response.dto";
 
 @Controller()
 export class AppController {
@@ -10,7 +11,8 @@ export class AppController {
   @ApiOperation({
     description: "Hello World",
   })
-  get(): string {
-    return this.appService.get();
+  get(): ApiResponse<string> {
+    const res = this.appService.get();
+    return new ApiResponse(res);
   }
 }

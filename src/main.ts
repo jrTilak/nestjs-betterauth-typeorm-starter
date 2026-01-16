@@ -1,3 +1,4 @@
+import "./init";
 import * as fs from "node:fs";
 import * as path from "node:path";
 import { NestFactory } from "@nestjs/core";
@@ -5,16 +6,13 @@ import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
 import { apiReference } from "@scalar/nestjs-api-reference";
 import * as express from "express";
 import { AppModule } from "@/app.module";
-import "dotenv/config";
 import { ResponseInterceptor } from "@/common/interceptors/response.interceptor";
 import { AppValidationPipe } from "@/common/pipe/app-validation.pipe";
-import { validateEnv } from "@/common/validations/env";
 import { APP_CONFIG } from "@/config/app.config";
 import { Logger } from "@/lib/logger";
+import "reflect-metadata";
 
 const GLOBAL_PREFIX = "/api/";
-
-validateEnv();
 
 const logger = new Logger("Bootstrap");
 
@@ -37,9 +35,6 @@ async function bootstrap() {
     next();
   });
 
-  /**
-   * Enable CORS as * in development mode for testing.
-   */
   app.enableCors({
     credentials: true,
     origin: String(process.env.CORS_ORIGINS)
