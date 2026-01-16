@@ -19,8 +19,8 @@
     "lint": "pnpm exec biome lint src test",
     "lint:fix": "pnpm exec biome lint src test --write",
     "format": "pnpm exec biome format src test --write",
-    "db:migration:create": "pnpm exec typeorm-ts-node-commonjs migration:create src/db/migrations/$npm_config_name",
-    "db:migration:generate": "pnpm exec typeorm-ts-node-commonjs migration:generate -d src/db/index.ts src/db/migrations/$npm_config_name",
+    "db:migration:create": "pnpm exec typeorm-ts-node-commonjs migration:create",
+    "db:migration:generate": "pnpm exec typeorm-ts-node-commonjs migration:generate -d src/db/index.ts",
     "db:migration:run": "pnpm exec typeorm-ts-node-commonjs migration:run -d src/db/index.ts",
     "db:migration:revert": "pnpm exec typeorm-ts-node-commonjs migration:revert -d src/db/index.ts"
   },

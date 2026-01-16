@@ -7,10 +7,6 @@
 - Install deps: `pnpm install`
 - Copy env: `cp .env.example .env` and fill DB creds.
 - Run migrations (after any entity change or new pull):
-	- Generate from entities: `pnpm run db:migration:generate --name add-user-fields`
-	- Apply: `pnpm run db:migration:run`
-	- Revert last: `pnpm run db:migration:revert`
-- Dev server: `pnpm start:dev`
 
 ### Responses
 - Global `ResponseInterceptor` wraps all JSON responses as `{ message, data, error? }` and logs errors.

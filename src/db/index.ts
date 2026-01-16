@@ -1,4 +1,4 @@
-import { join } from "node:path";
+import "dotenv/config";
 
 import { DataSource } from "typeorm";
 
@@ -12,8 +12,4 @@ export const dataSource = new DataSource({
   username: process.env.DB_USERNAME,
   password: process.env.DB_PASSWORD,
   port: Number(process.env.DB_PORT),
-
-  // Pick up all entity definitions and migrations (works for ts-node and compiled dist)
-  entities: [join(__dirname, "../**/*.entity.{ts,js}")],
-  migrations: [join(__dirname, "./migrations/*.{ts,js}")],
 });
